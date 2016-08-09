@@ -1,0 +1,72 @@
+html,body{height: 100%;margin:0;padding: 0;background:#eee;}
+
+
+/*NavBar*/
+
+
+.navbar{border-radius: 0px;}
+.navbar-imsat{background: rgba(180,180,180,0.1); margin-top:-53px;}
+.navbar-nav li a {color:#fff;}
+.navbar-nav li a:hover{background: transparent;color:#ddd;}
+
+/*Container Header	*/
+
+.logo{
+
+	padding-top: 60px; 
+    height: 250px;
+    width: 100%;
+    font-size: 24px; 
+    text-align: center; 
+    color: #fff;
+    background:#000 url('../img/fundo.jpg') center;
+}
+#map{width: 500px; height: 500px;}
+
+
+.gm-style > div:nth-child(2){
+	display: none;
+}
+.gm-style-cc{display: none;}
+
+#form
+{
+	border: 1px solid #0e1721;
+	padding: 20px;
+	border-radius: 4px;
+	min-height: 500px;
+}
+fieldset{margin: 20px 0;}
+
+.block{
+	float: left;
+}
+
+canvas{margin: 0px!important; padding: 0px;}
+#panel-home{box-shadow: 0 0 18px #ccc;}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  background-color: #0e1721;
+}
+
+/* Not required for template or sticky footer method. */
+.container-footer {
+  width: auto;
+  max-width: 100%;
+  
+}
+.container-footer .text-muted-footer {
+  margin: 20px 0;
+  color:#eee;
+  font-size: 14px;
+  padding: 25px 40px;
+  margin: auto;
+}
+
+.lbox{display: inline;}
