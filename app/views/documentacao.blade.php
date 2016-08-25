@@ -7,15 +7,16 @@
     <div class="page-header">
       <h1>Documentação IMSAT <small>Versão Beta</small></h1>
     </div>
-    <ul class="list-unstyled">
-      <li><a href="#tag1" title="Iniciando"><i class="fa fa-check" aria-hidden="true"></i> Iniciando</a></li>
-      <li><a href="#tag2" title="Definindo coordenadas"><i class="fa fa-check" aria-hidden="true"></i> Definindo coordenadas</a></li>
-      <li><a href="#tag3" title="Extraindo imagens"><i class="fa fa-check" aria-hidden="true"></i> Extraindo imagens</a></li>
-      <li><a href="#tag4" title="Salvar imagem final"><i class="fa fa-check" aria-hidden="true"></i> Salvar imagem final</a></li>
-    </ul>
+    <div class="list">
+      <ul class="list-unstyled">
+        <li><a href="#tag1" title="Iniciando"><i class="fa fa-check" aria-hidden="true"></i> Iniciando</a></li>
+        <li><a href="#tag2" title="Definindo coordenadas"><i class="fa fa-check" aria-hidden="true"></i> Definindo coordenadas</a></li>
+        <li><a href="#tag3" title="Extraindo imagens"><i class="fa fa-check" aria-hidden="true"></i> Extraindo imagens</a></li>
+        <li><a href="#tag4" title="Salvar imagem final"><i class="fa fa-check" aria-hidden="true"></i> Salvar imagem final</a></li>
+      </ul>
+    </div>
     <br>
 
-    
     <blockquote>
       <h2 id="tag1">Iniciando</h2>
       <p>
@@ -59,11 +60,10 @@
       <h2 id="tag3">Extraindo imagens</h2>
       <p>
         Para iniciar o processo de extração das imagens, clique no botão <button type="button" class="btn btn-primary btn-xs"><i class="fa fa-picture-o" aria-hidden="true"></i> Extrair</button>.
-        Aguarde enquanto o sistema constrói o mosaico e extrai as imagens.<br><br>
+        Aguarde enquanto o sistema gera os links das imagens e cria o arquivo zip com todas elas para download.<br><br>
         <span class="text-danger">
-          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Evite regiões muito amplas pois quando o espaço entre um ponto e outro é muito grande a quantidade de imagens a serem exportadas
-          também será, também deve-se notar que quanto maior for o detalhe das imagens de satélite (zoom máximo),
-          também será grande a quantidade de imagens a serem exportadas.
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Para regiões muito amplas o espaço entre os pontos é muito grande e a quantidade de imagens a serem exportadas
+          também será, isso também se aplica para níveis de zoom máximo.
         </span class="text-danger">
         <br><br>
         Para cancelar o processo de extração clique no botão <button type="button" class="btn btn-danger btn-xs">Cancelar</button> da caixa de diálogo.
@@ -77,10 +77,8 @@
     <blockquote>
       <h2 id="tag4">Salvar imagem final</h2>
       <p>
-        Após o processo de extração for concluido, a imagem resultante será exibida no painel inferior.
-        Para salvar a imagem final, clique com o botão direito sobre a imagem e selecione a opção: <i>Salvar como...</i>
-        A imagem resultante é tratada como uma imagem simples de um web site, assim pode ser utilizado
-        o próprio navegador para salvar ou copiar para a área de transferência.
+        Após o processo de extração for concluido, o link de cada uma das imagens exportadas estará disponível 
+        para download, ou se o usuário preferir poderá baixar o Zip de todas as imagens clicando no link <a href="#">Baixar Zip</a>.
         <br><br>
         <img class="col-md-offset-2"src="{{url('img/fig3.png')}}" alt="Figura 3" width="70%">
         <p class="text-center"><b>Figura 3</b></p>

@@ -3,7 +3,8 @@
 
 class HomeController extends BaseController {
 
-	
+	private $path;
+
 	public function getIndex()
 	{
 		return View::make('home');
@@ -11,28 +12,33 @@ class HomeController extends BaseController {
 
 	public function postImage()
 	{
-		$array = Input::get("images");
-
-		$path = "../app/temp/";
-		foreach (new DirectoryIterator($path) as $fileInfo) {
-		    if(!$fileInfo->isDot()) {
-		    	if(!preg_match("/.htaccess/", $fileInfo->getPathname()))
-		    		unlink($fileInfo->getPathname());
-		    }
+		$image = Input::get("image");
+		$nome = Input::get("nome");
+		$dir = Input::get("dir");
+		if($image == "" || $nome == "" || $dir == "")
+		{
+			die("Parametros vazios!");
 		}
 		
-		$zip = new ZipArchive;
-		$nameZip = date('Y-m-d-H-i-s').".zip";
-		$res = $zip->open($path.$nameZip, ZipArchive::CREATE);
-		if ($res !== TRUE) return 0;
-		foreach ($array as $key => $value) {
-			$data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $value["base64"]));
-			$zip->addFromString($value["nome"], $data);
+		foreach (new DirectoryIterator("temp") as $fileInfo) {
+			// 1 dia = 86400 segundos
+		    if(preg_match("/.zip/", $fileInfo->getPathname()) && (time() - filectime($fileInfo->getPathname())) > 86400) {
+		    	unlink($fileInfo->getPathname());
+		    }
 		}
-		$zip->close();
 
-		return $path.$nameZip;
+		$nameZip = "temp/".$dir.".zip";
+		$zip = new ZipArchive;
+		
+		if($zip->open($nameZip, ZipArchive::CREATE) !== TRUE)
+		{
+			die("Erro ao criar o arquivo Zip");
+		}
+		$data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $image));
+		$zip->addFromString($nome, $data);
+		$zip->close();
 	}
+	
 	public function getDocumentacao()
 	{
 		return View::make('documentacao');
@@ -89,4 +95,6 @@ class HomeController extends BaseController {
 
 		return base64_encode($buffer);
 	}
+
+
 }
