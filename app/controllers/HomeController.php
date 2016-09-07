@@ -20,14 +20,14 @@ class HomeController extends BaseController {
 			die("Parametros vazios!");
 		}
 		
-		foreach (new DirectoryIterator("temp") as $fileInfo) {
+		foreach (new DirectoryIterator("../public/temp") as $fileInfo) {
 			// 1 dia = 86400 segundos
 		    if(preg_match("/.zip/", $fileInfo->getPathname()) && (time() - filectime($fileInfo->getPathname())) > 86400) {
 		    	unlink($fileInfo->getPathname());
 		    }
 		}
 
-		$nameZip = "temp/".$dir.".zip";
+		$nameZip = "../public/temp/".$dir.".zip";
 		$zip = new ZipArchive;
 		
 		if($zip->open($nameZip, ZipArchive::CREATE) !== TRUE)
