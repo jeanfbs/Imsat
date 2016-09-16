@@ -15,7 +15,7 @@ App::before(function($request)
 {
 	$agent = strtolower($request->header('User-Agent'));
 
-	if(!preg_match("/chrome/", $agent) && !preg_match("/firefox/", $agent))
+	if(!preg_match("/chrome/", $agent))
 	{
 		return View::make("browser");
 	}

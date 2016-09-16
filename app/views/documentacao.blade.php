@@ -77,8 +77,7 @@
     <blockquote>
       <h2 id="tag4">Salvar imagem final</h2>
       <p>
-        Após o processo de extração for concluido, o link de cada uma das imagens exportadas estará disponível 
-        para download, ou se o usuário preferir poderá baixar o Zip de todas as imagens clicando no link <a href="#">Baixar Zip</a>.
+        Após o processo de extração for concluido, será disponibilizado o link do Zip de todas as imagens, para baixar clique no link <a href="#"><i class='fa fa-download fa-fw' aria-hidden='true'></i>Baixar Zip</a>.
         <br><br>
         <img class="col-md-offset-2"src="{{url('img/fig3.png')}}" alt="Figura 3" width="70%">
         <p class="text-center"><b>Figura 3</b></p>
