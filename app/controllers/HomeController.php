@@ -3,7 +3,9 @@
 
 class HomeController extends BaseController {
 
-	private $path;
+	private $path =  "../public/temp/";
+
+
 
 	public function getIndex()
 	{
@@ -15,19 +17,25 @@ class HomeController extends BaseController {
 		$image = Input::get("image");
 		$nome = Input::get("nome");
 		$dir = Input::get("dir");
+
 		if($image == "" || $nome == "" || $dir == "")
 		{
 			die("Parametros vazios!");
 		}
 		
-		foreach (new DirectoryIterator("temp") as $fileInfo) {
+		if(!is_dir($this->path))
+		{
+			
+			if(!mkdir($this->path,0774,true)) return 0;
+		}
+		foreach (new DirectoryIterator($this->path) as $fileInfo) {
 			// 1 dia = 86400 segundos
 		    if(preg_match("/.zip/", $fileInfo->getPathname()) && (time() - filectime($fileInfo->getPathname())) > 86400) {
 		    	unlink($fileInfo->getPathname());
 		    }
 		}
 
-		$nameZip = "temp/".$dir.".zip";
+		$nameZip = $this->path.$dir.".zip";
 		$zip = new ZipArchive;
 		
 		if($zip->open($nameZip, ZipArchive::CREATE) !== TRUE)
